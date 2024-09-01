@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 from data_treatment import *
+from plots import *
 
 def main():
     # get google sheets database
@@ -14,14 +15,11 @@ def main():
     ranking = make_ranking(data)
     
     # get first 15 animals
+    print(ranking)
     ranking = ranking[0:15]
     
-    # plot ranking
-    fig, ax = plt.subplots(figsize = (12, 9))
-    ax.bar(ranking)
-    plt.xticks(rotation = 45)
-
-    plt.show()
+    # plot
+    plot_ranking(ranking)
 
 if __name__ == "__main__":
     main()

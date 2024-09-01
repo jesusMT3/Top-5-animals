@@ -33,19 +33,19 @@ def make_ranking(data: pd.DataFrame):
     Returns:
         pd.DataFrame: The ranking in descending order.
     """
-    ranking = {}
     
     # ranking dataframe
     last_five_cols = data.columns[-5:]
     all_animals = pd.concat([data[i] for i in last_five_cols]).unique()
-    ranking = pd.DataFrame(index = all_animals)
     
     values_first = data["1st animal"].value_counts()
     values_second = data["2nd animal"].value_counts()
     values_third = data["3rd animal"].value_counts()
     values_fourth = data["4th animal"].value_counts()
     values_fifth = data["5th animal"].value_counts()
-
+    
+    ranking = pd.DataFrame(index = all_animals)
+    
     values = []
     for animal in all_animals:
         value = 0
@@ -61,9 +61,8 @@ def make_ranking(data: pd.DataFrame):
             value += values_fifth[animal]
 
         values.append(value)
-        
+    
     ranking["values"] = values
-    ranking = pd.DataFrame(ranking)
     ranking = ranking.sort_values(by = "values", ascending = False)
     
-    return values
+    return ranking
