@@ -35,7 +35,8 @@ def make_ranking(data: pd.DataFrame):
     
     # ranking dataframe
     last_five_cols = data.columns[-5:]
-    all_animals = pd.concat([data[i] for i in last_five_cols]).unique()
+    all_animals = pd.concat([data[i] for i in last_five_cols])
+    unique_animals = all_animals.unique()
     
     values_first = data["1st animal"].value_counts()
     values_second = data["2nd animal"].value_counts()
@@ -43,10 +44,12 @@ def make_ranking(data: pd.DataFrame):
     values_fourth = data["4th animal"].value_counts()
     values_fifth = data["5th animal"].value_counts()
     
-    ranking = pd.DataFrame(index = all_animals)
+    ranking = pd.DataFrame(index = unique_animals)
+    votes = all_animals.value_counts()
+    ranking["votes"] = votes
     
     values = []
-    for animal in all_animals:
+    for animal in unique_animals:
         value = 0
         if animal in values_first:
             value += 5 * values_first[animal]
@@ -65,3 +68,8 @@ def make_ranking(data: pd.DataFrame):
     ranking = ranking.sort_values(by = "values", ascending = False)
     
     return ranking
+
+
+def get_distribution(data: pd.DataFrame, parameter: str):
+    gender_data = data[parameter].value_counts()
+    return gender_data
