@@ -10,6 +10,11 @@ def main():
     # import data
     data = import_data(url)
     
+    # distributions
+    gender_distribution = get_distribution(data, "Gender")
+    country_distribution = get_distribution(data, "Country")
+    age_distribution = get_distribution(data, "Age")
+    
     # get ranking dataframe
     ranking = make_ranking(data)
     
@@ -17,7 +22,7 @@ def main():
     ranking = ranking[0:15]
     
     # plot
-    plot_ranking(ranking)
+    # plot_ranking(ranking)
 
 if __name__ == "__main__":
     main()
