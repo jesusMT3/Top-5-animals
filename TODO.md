@@ -1,10 +1,11 @@
 ## TODO list
 
 # data_treatment.py
-[ ] Make popularity column.
+[X] Make popularity column.
+[ ] Rewrite the code (looks ugly).
 
 # plots.py
-[ ] Make popularity dot graphs.
+[X] Make popularity dot graphs.
 [ ] Style graph.
 [ ] Gender ditribution pie graph.
 [ ] Country distribution (pie?) graph.
