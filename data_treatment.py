@@ -27,8 +27,7 @@ def make_ranking(data: pd.DataFrame):
     5 points for each top 1, 4 points for each top 2, and so on.
 
     Args:
-        data (pd.DataFrame): Must contain five columns called:
-        "1st animal", "2nd animal"... and so on.
+        data (pd.DataFrame): Must contain five columns called: "1st animal", "2nd animal"... and so on.
 
     Returns:
         pd.DataFrame: The ranking in descending order.
@@ -58,7 +57,7 @@ def make_ranking(data: pd.DataFrame):
         if animal in values_fourth:
             value += 2 * values_fourth[animal]
         if animal in values_fifth:
-            value += values_fifth[animal]
+            value += 1 * values_fifth[animal]
 
         values.append(value)
     

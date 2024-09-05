@@ -1,4 +1,3 @@
-import matplotlib.pyplot as plt
 from data_treatment import *
 from plots import *
 
@@ -15,7 +14,6 @@ def main():
     ranking = make_ranking(data)
     
     # get first 15 animals
-    print(ranking)
     ranking = ranking[0:15]
     
     # plot
