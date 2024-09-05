@@ -2,6 +2,7 @@
 
 # data_treatment.py
 [X] Make popularity column.
+[X] Make distribution datasets.
 [ ] Rewrite the code (looks ugly).
 
 # plots.py
