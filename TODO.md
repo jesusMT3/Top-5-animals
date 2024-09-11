@@ -7,10 +7,10 @@
 
 # plots.py
 [X] Make popularity dot graphs.
-[ ] Style graph.
-[ ] Gender ditribution pie graph.
-[ ] Country distribution (pie?) graph.
-[ ] Age distribution graph.
+[ ] Style plots.
+[X] Gender ditribution pie graph.
+[X] Country distribution (pie?) graph.
+[X] Age distribution graph.
 
 # main.py
 [ ] Variables to filter for gender and country.

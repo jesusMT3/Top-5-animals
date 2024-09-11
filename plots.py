@@ -1,6 +1,8 @@
+"""
+Missing docstring
+"""
 import pandas as pd
 import matplotlib.pyplot as plt
-from matplotlib import colormaps
 
 def plot_ranking(ranking: pd.DataFrame):
     """
@@ -16,12 +18,17 @@ def plot_ranking(ranking: pd.DataFrame):
     rest = '#00CC66'
     all_colors = [gold, silver, bronze] + [rest] * (len(ranking) - 3)
 
-    fig, ax = plt.subplots(figsize=(12, 9))
+    _, ax = plt.subplots(figsize=(12, 9))
     plt.xticks(rotation=45)
-    ax2 = ax.twinx()
+
     ax.bar(ranking.index, ranking["values"], color=all_colors)
-    ax2.plot(ranking.index, ranking["votes"], 'or')
-    
+
+    max_values = ranking["values"].max()
+    max_votes = ranking["votes"].max()
+    scaling_factor = 0.33 * max_values / max_votes
+    rescaled_votes = ranking["votes"] * scaling_factor
+    ax.bar(ranking.index, rescaled_votes, color='gray', alpha=0.7)
+
     plt.show()
 
 
@@ -32,8 +39,11 @@ def plot_gender(gender_distribution: pd.DataFrame):
     Args:
         ranking (pd.DataFrame)
     """
-    
-    raise NotImplementedError
+    _, ax = plt.subplots(figsize=(12, 9))
+    ax.pie(x = gender_distribution, labels = gender_distribution.index)
+    ax.legend()
+
+    plt.show()
 
 
 def plot_country(country_distribution: pd.DataFrame):
@@ -43,7 +53,11 @@ def plot_country(country_distribution: pd.DataFrame):
     Args:
         ranking (pd.DataFrame)
     """
-    raise NotImplementedError
+    _, ax = plt.subplots(figsize=(12, 9))
+    ax.pie(x = country_distribution, labels = country_distribution.index)
+    ax.legend()
+
+    plt.show()
 
 
 def plot_age(age_distribution: pd.DataFrame):
@@ -53,4 +67,7 @@ def plot_age(age_distribution: pd.DataFrame):
     Args:
         ranking (pd.DataFrame)
     """
-    raise NotImplementedError
+    _, ax = plt.subplots(figsize=(12, 9))
+    ax.bar(age_distribution.index, age_distribution)
+
+    plt.show()

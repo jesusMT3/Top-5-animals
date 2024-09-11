@@ -1,28 +1,37 @@
-from data_treatment import *
-from plots import *
+"""
+Missing docstring
+"""
+from data_treatment import import_data, make_ranking, get_distribution
+from plots import plot_ranking, plot_gender, plot_age, plot_country
 
 def main():
+    """
+    Empty docstring
+    """
     # get google sheets database
     sheet_name = 'top-5-animals'
     sheet_id = '1XLO-q3zrwgsAbITzBbIgICT9X61GZ8c4LX_ubsE2JCo'
-    url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet={sheet_name}"
-    
+    first_url = "https://docs.google.com/spreadsheets/d/"
+    second_url = "/gviz/tq?tqx=out:csv&sheet="
+    url = f"{first_url}{sheet_id}{second_url}{sheet_name}"
+
     # import data
     data = import_data(url)
-    
-    # distributions
+
+    # make dataframe
+    ranking = make_ranking(data)
     gender_distribution = get_distribution(data, "Gender")
     country_distribution = get_distribution(data, "Country")
     age_distribution = get_distribution(data, "Age")
-    
-    # get ranking dataframe
-    ranking = make_ranking(data)
-    
+
     # get first 15 animals
-    ranking = ranking[0:15]
-    
-    # plot
-    # plot_ranking(ranking)
+    ranking = ranking.iloc[0:15]
+
+    # plots
+    plot_ranking(ranking)
+    plot_gender(gender_distribution)
+    plot_country(country_distribution)
+    plot_age(age_distribution)
 
 if __name__ == "__main__":
     main()
