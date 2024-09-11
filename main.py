@@ -1,12 +1,12 @@
 """
-Missing docstring
+Main module of the project
 """
 from data_treatment import import_data, make_ranking, get_distribution
 from plots import plot_ranking, plot_gender, plot_age, plot_country
 
 def main():
     """
-    Empty docstring
+    Main function of the project
     """
     # get google sheets database
     sheet_name = 'top-5-animals'
