@@ -1,5 +1,5 @@
 """
-Missing docstring
+Module to store all the code that build the plots for the data.
 """
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -11,7 +11,7 @@ def plot_ranking(ranking: pd.DataFrame):
     Args:
         ranking (pd.DataFrame)
     """
-    # Define custom colors for the bars
+    # custom colors for the bars
     gold = '#FFD700'
     silver = '#C0C0C0'
     bronze = '#CD7F32'
@@ -34,7 +34,7 @@ def plot_ranking(ranking: pd.DataFrame):
 
 def plot_gender(gender_distribution: pd.DataFrame):
     """
-    Draws a bar plot of the gender distribution in the data.
+    Draws a pie plot of the gender distribution in the data.
 
     Args:
         ranking (pd.DataFrame)
@@ -48,7 +48,7 @@ def plot_gender(gender_distribution: pd.DataFrame):
 
 def plot_country(country_distribution: pd.DataFrame):
     """
-    Draws a bar plot of the country distribution in the data.
+    Draws a pie plot of the country distribution in the data.
 
     Args:
         ranking (pd.DataFrame)
@@ -62,7 +62,7 @@ def plot_country(country_distribution: pd.DataFrame):
 
 def plot_age(age_distribution: pd.DataFrame):
     """
-    Draws a bar plot of the rage distribution in the data.
+    Draws a bar plot of the age distribution in the data.
 
     Args:
         ranking (pd.DataFrame)

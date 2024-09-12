@@ -1,5 +1,5 @@
 """
-Module to store all the functions that make the data treatment
+Module to store all the code that make the data treatment
 for the input google sheets csv.
 """
 import pandas as pd
