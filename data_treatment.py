@@ -27,20 +27,26 @@ def import_data(url: str):
 
     return data
 
-def make_ranking(data: pd.DataFrame):
+def make_ranking(data: pd.DataFrame, custom_filter: tuple = None):
     """
     Makes the ranking dataframe of the data. Each row will be given
     5 points for each top 1, 4 points for each top 2, and so on.
 
     Args:
-        data (pd.DataFrame): Must contain five columns called: 
-        "1st animal", "2nd animal"... and so on.
+        data (pd.DataFrame): Dataframe from google sheets csv.
+        custom_filter (tuple): Contains the key-value for the filter.
 
     Returns:
         pd.DataFrame: The ranking in descending order.
     """
 
-    # ranking dataframe
+    # filter if there is one
+    if custom_filter is not None:
+        # unpack values
+        column, parameter = custom_filter
+        # get the rows where column equals parameter
+        data = data[data[column] == parameter]
+
     last_five_cols = data.columns[-5:]
     all_animals = pd.concat([data[i] for i in last_five_cols])
     unique_animals = all_animals.unique()

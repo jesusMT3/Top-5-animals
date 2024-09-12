@@ -18,8 +18,13 @@ def main():
     # import data
     data = import_data(url)
 
+    # filter dataframe
+    filters = {"genders": list(data.loc[:,"Gender"].unique()),
+               "countries": list(data.loc[:, "Country"].unique()),
+               "ages": list(data.loc[:, "Age"].unique())}
+
     # make dataframe
-    ranking = make_ranking(data)
+    ranking = make_ranking(data, custom_filter = ("Gender" , filters["genders"][1]))
     gender_distribution = get_distribution(data, "Gender")
     country_distribution = get_distribution(data, "Country")
     age_distribution = get_distribution(data, "Age")
