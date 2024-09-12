@@ -13,7 +13,7 @@
     [X] Age distribution graph.
 
 # main.py
-    [ ] Variables to filter for gender and country.
+    [X] Variables to filter for gender and country.
 
 # readme.md
     [ ] Update readme.md.
